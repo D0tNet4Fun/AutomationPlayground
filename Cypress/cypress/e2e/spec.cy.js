@@ -1,11 +1,12 @@
 /// <reference types="cypress" />
 
+import { todoPage } from "../../model/todoPage.js";
+
 describe('template spec', () => {
   it('passes', () => {
-    cy.visit('https://example.cypress.io/todo')//.debug();
-    const listItemsSelector = '.todo-list li';
-    cy.get(listItemsSelector).first().should('have.text', 'Pay electric bill')
-    cy.get(listItemsSelector).last().should('have.text', 'Walk the dog')
-    cy.get(listItemsSelector).should('have.length', 2)
+    todoPage.open();
+    todoPage.listItems().first().should('have.text', 'Pay electric bill')
+    todoPage.listItems().last().should('have.text', 'Walk the dog')
+    todoPage.listItems().should('have.length', 2)
   })
 })
