@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Playwright.xUnit\Playwright.xUnit.csproj" />
+  </ItemGroup>
+
 </Project>
