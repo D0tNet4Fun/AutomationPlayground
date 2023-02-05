@@ -16,9 +16,9 @@ namespace Playwright.xUnit
 
         public IPage Page { get; private set; }
 
-        public Task DisposeAsync() => Task.CompletedTask;
+        public virtual Task DisposeAsync() => Task.CompletedTask;
 
-        public async Task InitializeAsync()
+        public virtual async Task InitializeAsync()
         {
             Page = await _context.NewPageAsync().ConfigureAwait(false);
         }
