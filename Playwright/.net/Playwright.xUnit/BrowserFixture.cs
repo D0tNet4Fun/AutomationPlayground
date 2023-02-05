@@ -1,4 +1,5 @@
 ﻿using Microsoft.Playwright;
+using System;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -10,6 +11,18 @@ namespace Playwright.xUnit
         private IPlaywright _playwright;
 
         public IBrowser Browser { get; private set; }
+        public static BrowserFixture? Current { get; private set; }
+
+        public BrowserFixture()
+        {
+#pragma warning disable RCS1059 // Avoid locking on publicly accessible instance.
+            lock (typeof(BrowserFixture))
+            {
+                if (Current != null) throw new InvalidOperationException("Only one instance is allowed.");
+                Current = this;
+            }
+#pragma warning restore RCS1059 // Avoid locking on publicly accessible instance.
+        }
 
         public virtual async Task InitializeAsync()
         {

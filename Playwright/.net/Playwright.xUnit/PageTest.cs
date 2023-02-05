@@ -4,6 +4,7 @@ using Xunit;
 
 namespace Playwright.xUnit
 {
+    [Collection("pageTests")]
     public class PageTest : IClassFixture<ContextFixture>, IAsyncLifetime
     {
         private ContextFixture _context;
