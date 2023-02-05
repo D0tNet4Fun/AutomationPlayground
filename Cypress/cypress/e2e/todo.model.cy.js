@@ -2,7 +2,7 @@
 
 import { todoPage } from "../../model/todoPage.js";
 
-describe('template spec', () => {
+describe('todo using model', () => {
   it('passes', () => {
     todoPage.open();
     todoPage.listItems().first().should('have.text', 'Pay electric bill')
