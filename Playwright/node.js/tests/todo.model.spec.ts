@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { todoPageBuilder } from '../model/todoPageBuilder';
+import { TodoPage } from '../model/TodoPage';
 
 test('todo using model', async ({ page }) => {
-  const todoPage = todoPageBuilder(page);
-  await todoPage.open();
+  const todoPage = new TodoPage(page);
+  await todoPage.goto();
   await expect(todoPage.list).toHaveCount(2);
   const items = await todoPage.list.all();
   await expect(items[0]).toContainText('Pay electric bill');
