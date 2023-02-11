@@ -20,7 +20,7 @@ public class TodoModelTest : PageTest
     [Fact]
     public async Task TodoUsingModel()
     {
-        await _todoPage.Open();
+        await _todoPage.GotoAsync();
         await Expect(_todoPage.List).ToHaveCountAsync(2);
         var items = await _todoPage.List.AllAsync();
         await Expect(items[0]).ToContainTextAsync("Pay electric bill");

@@ -2,11 +2,10 @@
 {
     public class TodoPage : PageBase
     {
-        public TodoPage(IPage page): base(page)
+        public TodoPage(IPage page)
+            : base(page, "https://example.cypress.io/todo")
         {
         }
-
-        public Task Open() => Page.GotoAsync("https://example.cypress.io/todo");
 
         public ILocator List => Page.Locator("css=.todo-list li");
     }
